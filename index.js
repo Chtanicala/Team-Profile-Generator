@@ -179,7 +179,7 @@ let finalizeteam = () => {
                     <ul>
                         <li class = "id">ID: ${team[index].getId()} </li>
                         <li class = "email">Email:<a href="mailto:${team[index].getEmail()}">${team[index].getEmail()}</a></li>
-                        <li class = "engineerGithub">Github: <a href="https://www.github.com/XXX" target="_blank">${team[index].getGithub()}</a></li>
+                        <li class = "engineerGithub">Github: <a href="https://www.github.com/${team[index].getGithub()}" target="_blank">${team[index].getGithub()}</a></li>
                     </ul>
                 </div>
             </div>
@@ -196,7 +196,7 @@ let finalizeteam = () => {
                     <ul>
                         <li class = "id">ID: ${team[index].getId()} </li>
                         <li class = "email">Email:<a href="mailto:${team[index].getEmail()}">${team[index].getEmail()}</a></li>
-                        <li class = "internSchool">School: ${team[index].getSchool()} </li>
+                        <li class = "internSchool">School: ${team[index].school} </li>
                     </ul>
                 </div>
             </div>
