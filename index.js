@@ -82,24 +82,64 @@ const internQuestions = [
     }
 ]
 
+let managerPrompt = () =>{
+    inquirer
+        .prompt(
+            managerQuestions
+        )
+        .then((answers) => {
+            console.log(answers);
+        
+            employeePrompt();
+        })
+}
 
-inquirer
-  .prompt([
-    {
-        type: "input",
-        message: "Enter a title for this project.",
-        name: "Project Title",
-    },
-  ])
-  .then((answers) => {
-    console.log(answers);
-    let output = 
-    fs.writeFile("./SampleREADME.md", output, ()=>{});
-  })
-  .catch((error) => {
-    if (error.isTtyError) {
-      // Prompt couldn't be rendered in the current environment
-    } else {
-      // Something else went wrong
-    }
-  });
+let employeePrompt = () => {
+    inquirer
+        .prompt( {
+            type: 'list',
+            message: 'Choose an employee to add.',
+            name: 'employee',
+            choices: ["Engineer", "Intern", "Finalize Team"]
+        })
+        .then((answers) => {
+
+            console.log(answers);
+            
+            if (answers.employee === 'Engineer') {
+                addEngineer()
+            } else if (answers.employee === 'Intern') {
+                addIntern()
+            } else {
+                finalizeteam();
+            }
+        }) 
+}
+
+let addEngineer = () => {
+    inquirer
+        .prompt(
+            engineerQuestions
+        )
+        .then((answers) => {
+            console.log(answers);
+        
+            employeePrompt();
+        })
+}
+
+
+let addIntern = () => {
+    inquirer
+        .prompt(
+            internQuestions
+        )
+        .then((answers) => {
+            console.log(answers);
+        
+            employeePrompt();
+        })
+}
+
+
+managerPrompt()
