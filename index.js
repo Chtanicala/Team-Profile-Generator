@@ -141,5 +141,16 @@ let addIntern = () => {
         })
 }
 
+let finalizeteam = () => {
+    inquirer
+        .prompt(
+            internQuestions
+        )
+        .then((answers) => {
+            console.log(answers);
+        
+            employeePrompt();
+        })
+}
 
 managerPrompt()
