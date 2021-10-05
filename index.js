@@ -155,12 +155,12 @@ let finalizeteam = () => {
             `
             <div class = "card">
                 <div class = "cardHeaders">
-                    <h2 class = "name">${team[index].getName()}</h2>
+                    <h2 class = "name">${team[index].name}</h2>
                     <h3 class = "role">${team[index].getRole()}</h3>
                 </div>
                 <div class = "content">
                     <ul>
-                        <li class = "id">ID: ${team[index].getId()} </li>
+                        <li class = "id">ID: ${team[index].id} </li>
                         <li class = "email">Email:<a href="mailto:${team[index].getEmail()}">${team[index].getEmail()}</a></li>
                         <li class = "managerOfficenumber">Office Number: ${team[index].officeNumber} </li>
                     </ul>
@@ -172,12 +172,12 @@ let finalizeteam = () => {
             `
             <div class = "card">
                 <div class = "cardHeaders">
-                    <h2 class = "name">${team[index].getName()}</h2>
+                    <h2 class = "name">${team[index].name}</h2>
                     <h3 class = "role">${team[index].getRole()}</h3>
                 </div>
                 <div class = "content">
                     <ul>
-                        <li class = "id">ID: ${team[index].getId()} </li>
+                        <li class = "id">ID: ${team[index].id} </li>
                         <li class = "email">Email:<a href="mailto:${team[index].getEmail()}">${team[index].getEmail()}</a></li>
                         <li class = "engineerGithub">Github: <a href="https://www.github.com/${team[index].getGithub()}" target="_blank">${team[index].getGithub()}</a></li>
                     </ul>
@@ -189,12 +189,12 @@ let finalizeteam = () => {
             `
             <div class = "card">
                 <div class = "cardHeaders">
-                    <h2 class = "name">${team[index].getName()}</h2>
+                    <h2 class = "name">${team[index].name}</h2>
                     <h3 class = "role">${team[index].getRole()}</h3>
                 </div>
                 <div class = "content">
                     <ul>
-                        <li class = "id">ID: ${team[index].getId()} </li>
+                        <li class = "id">ID: ${team[index].id} </li>
                         <li class = "email">Email:<a href="mailto:${team[index].getEmail()}">${team[index].getEmail()}</a></li>
                         <li class = "internSchool">School: ${team[index].school} </li>
                     </ul>
