@@ -7,6 +7,8 @@ const Manager = require('./lib/Manager')
 const Intern = require('./lib/Intern')
 const Engineer = require('./lib/Engineer')
 
+const team = [];
+
 const managerQuestions = [
     {
         type: 'input',
@@ -89,7 +91,7 @@ let managerPrompt = () =>{
         )
         .then((answers) => {
             console.log(answers);
-        
+            team.push(new Manager(answers.name, answers.id, answers.email, answers.officeNumber))
             employeePrompt();
         })
 }
@@ -123,7 +125,7 @@ let addEngineer = () => {
         )
         .then((answers) => {
             console.log(answers);
-        
+            team.push(new Engineer(answers.name, answers.id, answers.email, answers.github))
             employeePrompt();
         })
 }
@@ -136,21 +138,100 @@ let addIntern = () => {
         )
         .then((answers) => {
             console.log(answers);
-        
+            team.push(new Intern(answers.name, answers.id, answers.email, answers.school))
             employeePrompt();
         })
 }
 
 let finalizeteam = () => {
-    inquirer
-        .prompt(
-            internQuestions
-        )
-        .then((answers) => {
-            console.log(answers);
+
+    let cards = ``;
+
+    for (let index = 0; index < team.length; index++) {
         
-            employeePrompt();
-        })
+        if (team[index].officeNumber){
+            cards +=
+
+            `
+            <div class = "card">
+                <div class = "cardHeaders">
+                    <h2 class = "name">${team[index].getName()}</h2>
+                    <h3 class = "role">${team[index].getRole()}</h3>
+                </div>
+                <div class = "content">
+                    <ul>
+                        <li class = "id">ID: ${team[index].getId()} </li>
+                        <li class = "email">Email:<a href="mailto:${team[index].getEmail()}">${team[index].getEmail()}</a></li>
+                        <li class = "managerOfficenumber">Office Number: ${team[index].officeNumber} </li>
+                    </ul>
+                </div>
+            </div>
+        `
+        } else if (team[index].github) {
+            cards +=
+            `
+            <div class = "card">
+                <div class = "cardHeaders">
+                    <h2 class = "name">${team[index].getName()}</h2>
+                    <h3 class = "role">${team[index].getRole()}</h3>
+                </div>
+                <div class = "content">
+                    <ul>
+                        <li class = "id">ID: ${team[index].getId()} </li>
+                        <li class = "email">Email:<a href="mailto:${team[index].getEmail()}">${team[index].getEmail()}</a></li>
+                        <li class = "engineerGithub">Github: <a href="https://www.github.com/XXX" target="_blank">${team[index].getGithub()}</a></li>
+                    </ul>
+                </div>
+            </div>
+            `    
+        } else {
+            cards +=
+            `
+            <div class = "card">
+                <div class = "cardHeaders">
+                    <h2 class = "name">${team[index].getName()}</h2>
+                    <h3 class = "role">${team[index].getRole()}</h3>
+                </div>
+                <div class = "content">
+                    <ul>
+                        <li class = "id">ID: ${team[index].getId()} </li>
+                        <li class = "email">Email:<a href="mailto:${team[index].getEmail()}">${team[index].getEmail()}</a></li>
+                        <li class = "internSchool">School: ${team[index].getSchool()} </li>
+                    </ul>
+                </div>
+            </div>
+            `
+        }
+        
+    }
+
+    let output = 
+    `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <title>Development Team</title>
+</head>
+
+<body>
+
+<header>
+    <h1>Development Team</h1>
+</header>
+
+<div id = "container">
+    ${cards}
+</div>
+
+</body>
+
+</html>
+    `
+
+    fs.writeFile("./dist/index.html", output, () => {})
 }
 
 managerPrompt()
