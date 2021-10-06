@@ -25,8 +25,7 @@
 ## Links
 - https://github.com/Chtanicala/Team-Profile-Generator (Repository)
 - https://github.com/Chtanicala/Team-Profile-Generator/blob/main/index.js (Index.js File)
--  (App Video)
--  (Test Video)
+- https://watch.screencastify.com/v/KRh8f8rhsYG1C7l1hzqN (Video Walkthrough)
 
 ## Screenshots
 - ![Application](Photos/SampleIndex.PNG)
