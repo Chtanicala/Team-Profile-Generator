@@ -34,7 +34,7 @@ describe('School', () => {
 
 
 describe('Role', () => {
-    it('Should return "Employee"', () => {
+    it('Should return "Intern"', () => {
         const intern1 = new Intern()
 
         expect(intern1.getRole()).toBe("Intern");

@@ -26,7 +26,7 @@ describe('Email', () => {
 });
 
 describe('Role', () => {
-    it('Should return "Employee"', () => {
+    it('Should return "Engineer"', () => {
         const engineer1 = new Engineer()
 
         expect(engineer1.getRole()).toBe("Engineer");
